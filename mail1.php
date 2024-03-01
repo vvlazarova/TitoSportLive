@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST['messagebody'];
 
     // Additional variables
-    $page_link = '../index.html';
+    $page_link = '/index.html';
     $headers = "From: $email";
     $date = date('m/d/Y, H:i:s');
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formattedmsg = wordwrap($msg, 70);
 
     // Send email
-    mail('stoilpanchev4@gmail.com', 'website query', $formattedmsg, $headers);
+    mail('stoilpanchevsport@gmail.com', 'website query', $formattedmsg, $headers);
 } else {
     // If the form wasn't submitted, redirect to the home page
     header("Location: ../index.html");
