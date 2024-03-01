@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formattedmsg = wordwrap($msg, 70);
 
     // Send email
-    mail('info@titosport.co.uk', 'website query', $formattedmsg, $headers);
+    mail('stoilpanchev4@gmail.com', 'website query', $formattedmsg, $headers);
 } else {
     // If the form wasn't submitted, redirect to the home page
     header("Location: ../index.html");
