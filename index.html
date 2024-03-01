@@ -694,11 +694,10 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
           <div class="col-md-5">
             <form method="POST" data-netlify="true">
               <fieldset class="form-group">
-                  <input type="email" name="email" class="form-control" id="InputEmail" title="input email" placeholder="Enter email" required>
+                <input type="email" name="email" class="form-control" id="InputEmail" title="input email" placeholder="Enter email" required>
               </fieldset>
               <fieldset class="form-group">
-                  <textarea name="messagebody" class="form-control" id="exampleMessage"  title="input message"  placeholder="Message" required></textarea>
-                 
+                <textarea name="messagebody" class="form-control" id="exampleMessage" title="input message" placeholder="Message" required></textarea>
               </fieldset>
               <fieldset class="form-group">
                 <div class="form-group">
@@ -707,17 +706,17 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
                     <label class="form-check-label" for="gridCheck">
                       I agree to the terms & conditions
                     </label>
-                    </div>
-                    </div>
-                    </fieldset>
-              <fieldset class="form-group text-xs-right">
-                 <div><input type="submit" class="btn btn-outline-success btn-sm" value="send message"> </div>
+                  </div>
+                </div>
               </fieldset>
-          </form>
-          
+              <fieldset class="form-group text-xs-right">
+                <div><input type="submit" class="btn btn-outline-success btn-sm" value="send message"> </div>
+              </fieldset>
+            </form>
       </div>
+
        <div class="col-md-5">
-       <small>© Copyright 2021 - Violeta Lazarova All rights reserved.</small>
+       <small id="copyright"></small>
              
           </div>
           
@@ -727,7 +726,9 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
 
 
 
-
+<script>
+  document.getElementById('copyright').innerText = '© Copyright ' + new Date().getFullYear() + ' - Violeta Lazarova All rights reserved.';
+</script>
 
 
     
