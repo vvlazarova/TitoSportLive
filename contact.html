@@ -142,7 +142,7 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
           </div>
       </div>
       
-      <!-- Form adapted for Formspree with existing styles and success message -->
+     <!-- Form adapted for Formspree with existing styles and success message -->
 <div class="col-sm-6 pad">
   <form action="https://formspree.io/f/mvoerega" method="POST" class="rounded msg-form" name="contact" onsubmit="handleFormSubmission(event)">
 
@@ -205,14 +205,15 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
 
           // Add your Formspree integration code here if needed
 
-          // Hide the form
-          document.forms["contact"].style.display = "none";
+          // Clear input values
+          document.forms["contact"].reset();
 
           // Show the success message
           document.getElementById("successMessage").style.display = "block";
       }
   </script>
 </div>
+
 
 
               <div class="form-group d-flex justify-content-end"> 

@@ -698,34 +698,36 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
 
 <!-- Form adapted for Formspree with existing styles and success message -->
 <form action="https://formspree.io/f/mvoerega" method="POST" class="rounded msg-form" name="contact" onsubmit="handleFormSubmission(event)">
-    <fieldset class="form-group">
-        <input type="email" name="email" class="form-control" id="InputEmail" title="input email" placeholder="Enter email" required>
-    </fieldset>
 
-    <fieldset class="form-group">
-        <textarea name="messagebody" class="form-control" id="exampleMessage" title="input message" placeholder="Message" required></textarea>
-    </fieldset>
+  <fieldset class="form-group">
+      <input type="email" name="email" class="form-control" id="InputEmail" title="input email" placeholder="Enter email" required>
+  </fieldset>
 
-    <fieldset class="form-group">
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck" required>
-                <label class="form-check-label" for="gridCheck">
-                    I agree to the terms & conditions
-                </label>
-            </div>
-        </div>
-    </fieldset>
+  <fieldset class="form-group">
+      <textarea name="messagebody" class="form-control" id="exampleMessage" title="input message" placeholder="Message" required></textarea>
+  </fieldset>
 
-    <fieldset class="form-group text-xs-right">
-        <div>
-            <input type="submit" class="btn btn-outline-success btn-sm" value="Send Message">
-        </div>
-    </fieldset>
-</form>
+  <fieldset class="form-group">
+      <div class="form-group">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck" required>
+              <label class="form-check-label" for="gridCheck">
+                  I agree to the terms & conditions
+              </label>
+          </div>
+      </div>
+  </fieldset>
 
+  <fieldset class="form-group text-xs-right">
+      <div>
+          <input type="submit" class="btn btn-outline-success btn-sm" value="Send Message">
+      </div>
+  </fieldset>
 
-
+  <!-- Success message container -->
+  <div id="successMessage" style="display: none;">
+      <p>Your message has been sent successfully. Thank you!</p>
+  </div>
 
       </div>
 
@@ -738,25 +740,28 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
   </div>
 </footer>
 
-<!-- Success message container -->
-<div id="successMessage" style="display: none;">
-  <p>Your message has been sent successfully. Thank you!</p>
-</div>
+</form>
 
-<!-- JavaScript to handle form submission and show success message -->
-<script>
-  function handleFormSubmission(event) {
-      event.preventDefault(); // Prevent the form from submitting the traditional way
 
-      // Add your Formspree integration code here if needed
 
-      // Hide the form
-      document.forms["contact"].style.display = "none";
 
-      // Show the success message
-      document.getElementById("successMessage").style.display = "block";
-  }
+
+  <!-- JavaScript to handle form submission and show success message -->
+  <script>
+    function handleFormSubmission(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        // Add your Formspree integration code here if needed
+
+        // Clear input values
+        document.forms["contact"].reset();
+
+        // Show the success message
+        document.getElementById("successMessage").style.display = "block";
+    }
 </script>
+
+
 
 <script>
     document.getElementById('copyright').innerText = '© Copyright ' + new Date().getFullYear() + ' - Violeta Lazarova All rights reserved.';
