@@ -203,39 +203,47 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
 <!--script-->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-      var form = document.forms['contact'];
+    var form = document.forms['contact'];
 
-      form.addEventListener('submit', function(event) {
-          // Prevent the default form submission
-          event.preventDefault();
+    form.addEventListener('submit', function(event) {
+      // Prevent the default form submission
+      event.preventDefault();
 
-          // Add your additional processing here, e.g., displaying a loading spinner
+      // Add your additional processing here, e.g., displaying a loading spinner
 
-          // Submit the form using Formspree
-          fetch(form.action, {
-              method: form.method,
-              body: new FormData(form),
-              headers: {
-                  'Accept': 'application/json'
-              }
-          }).then(response => response.json())
-          .then(data => {
-              // Handle the response as needed
-              console.log(data);
+      // Submit the form using Formspree
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => response.json())
+        .then(data => {
+          // Handle the response as needed
+          console.log(data);
 
-              // Reset the form fields upon successful submission
-              form.reset();
+          // Reset the form fields upon successful submission
+          form.reset();
 
-              // Add any additional actions after a successful submission
-              // For example, display a success message
-              alert('Message sent successfully!');
-          }).catch(error => {
-              // Handle errors here
-              console.error('Error:', error);
+          // Clear input values manually to ensure compatibility
+          Array.from(form.elements).forEach(element => {
+            if (element.type !== 'submit' && element.type !== 'checkbox') {
+              element.value = '';
+            }
           });
-      });
+
+          // Add any additional actions after a successful submission
+          // For example, display a success message
+          alert('Message sent successfully!');
+        }).catch(error => {
+          // Handle errors here
+          console.error('Error:', error);
+        });
+    });
   });
 </script>
+
 
 
 
