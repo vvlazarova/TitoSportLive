@@ -694,7 +694,7 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
           </div>
           <div class="col-md-5">
 
-<!-- Form adapted for Formspree -->
+
 
 <!-- Form adapted for Formspree with existing styles and success message -->
 <form action="https://formspree.io/f/mvoerega" method="POST" class="rounded msg-form" name="contact" onsubmit="handleFormSubmission(event)">
@@ -746,20 +746,52 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
 
 
 
-  <!-- JavaScript to handle form submission and show success message -->
-  <script>
-    function handleFormSubmission(event) {
-        event.preventDefault(); // Prevent the form from submitting the traditional way
 
-        // Add your Formspree integration code here if needed
+<script>
+  function handleFormSubmission(event) {
+    event.preventDefault();
 
-        // Clear input values
-        document.forms["contact"].reset();
+    var form = event.target;
 
-        // Show the success message
-        document.getElementById("successMessage").style.display = "block";
-    }
+    // Add your additional processing here, e.g., displaying a loading spinner
+
+    // Submit the form using Formspree
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => response.json())
+      .then(data => {
+        // Handle the response as needed
+        console.log(data);
+
+        // Clear form fields upon successful submission
+        form.reset();
+
+        // Clear input values manually to ensure compatibility
+        Array.from(form.elements).forEach(element => {
+          if (element.type !== 'submit' && element.type !== 'checkbox') {
+            element.value = '';
+          }
+        });
+
+        // Display the success message
+        document.getElementById('successMessage').style.display = 'block';
+
+        // Add any additional actions after a successful submission
+        // For example, display a success message
+        alert('Message sent successfully!');
+      }).catch(error => {
+        // Handle errors here
+        console.error('Error:', error);
+      });
+  }
 </script>
+
+
+
 
 
 
