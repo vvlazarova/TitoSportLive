@@ -516,38 +516,96 @@ injury, fitness training, Strength and Conditioning , Edinburgh sport , Weight l
                 <hr id="two">
             </div>
             <div class="col-md-5">
-              <form action="mail1.php" method="POST" >
-                <fieldset class="form-group">
-                    <input type="email" name="email" class="form-control" id="InputEmail" title="input email" placeholder="Enter email" required>
-                </fieldset>
-                <fieldset class="form-group">
-                    <textarea name="messagebody" class="form-control" id="exampleMessage"  title="input message"  placeholder="Message" required></textarea>
-                   
-                </fieldset>
-                <fieldset class="form-group">
-                  <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck" required>
-                      <label class="form-check-label" for="gridCheck">
-                        I agree to the terms & conditions
-                      </label>
-                      </div>
-                      </div>
-                      </fieldset>
-                <fieldset class="form-group text-xs-right">
-                   <div><input type="submit" class="btn btn-outline-success btn-sm" value="send message"> </div>
-                </fieldset>
-            </form>
-            
-        </div>
-         <div class="col-md-5">
-          <small id="copyright"></small>
+           <!-- Form adapted for Formspree with existing styles and success message -->
+<form action="https://formspree.io/f/mvoerega" method="POST" class="rounded msg-form" name="contact" onsubmit="handleFormSubmission(event)">
+
+  <fieldset class="form-group">
+      <input type="email" name="email" class="form-control" id="InputEmail" title="input email" placeholder="Enter email" required>
+  </fieldset>
+
+  <fieldset class="form-group">
+      <textarea name="messagebody" class="form-control" id="exampleMessage" title="input message" placeholder="Message" required></textarea>
+  </fieldset>
+
+  <fieldset class="form-group">
+      <div class="form-group">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck" required>
+              <label class="form-check-label" for="gridCheck">
+                  I agree to the terms & conditions
+              </label>
+          </div>
+      </div>
+  </fieldset>
+
+  <fieldset class="form-group text-xs-right">
+      <div>
+          <input type="submit" class="btn btn-outline-success btn-sm" value="Send Message">
+      </div>
+  </fieldset>
+
+  <!-- Success message container -->
+  <div id="successMessage" style="display: none;">
+      <p>Your message has been sent successfully. Thank you!</p>
+  </div>
+
+      </div>
+
+       <div class="col-md-5">
+       <small id="copyright"></small>
              
-        </div>
-        
-    </div >
-</div>
+          </div>
+          
+      </div >
+  </div>
 </footer>
+
+</form>
+
+
+<script>
+  function handleFormSubmission(event) {
+    event.preventDefault();
+
+    var form = event.target;
+
+    // Add your additional processing here, e.g., displaying a loading spinner
+
+    // Submit the form using Formspree
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => response.json())
+      .then(data => {
+        // Handle the response as needed
+        console.log(data);
+
+        // Clear form fields upon successful submission
+        form.reset();
+
+        // Clear input values manually to ensure compatibility
+        Array.from(form.elements).forEach(element => {
+          if (element.type !== 'submit' && element.type !== 'checkbox') {
+            element.value = '';
+          }
+        });
+
+        // Display the success message
+        document.getElementById('successMessage').style.display = 'block';
+
+        // Add any additional actions after a successful submission
+        // For example, display a success message
+        alert('Message sent successfully!');
+      }).catch(error => {
+        // Handle errors here
+        console.error('Error:', error);
+      });
+  }
+</script>
+
 
 
 
