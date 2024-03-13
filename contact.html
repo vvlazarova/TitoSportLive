@@ -142,99 +142,57 @@ injury, fitness training, Strength and Conditioning for Juniors, Edinburgh sport
           </div>
       </div>
       
-<!-- Form adapted for Formspree with existing styles -->
-<div class="col-sm-6 pad">
-  <form action="https://formspree.io/f/mvoerega" method="POST" class="rounded msg-form" name="contact">
+      <!--Form with Formspree -->
+      <div class="col-sm-6 pad">
+        <form action="https://formspree.io/f/mvoerega" method="POST" class="rounded msg-form" name="contact">
 
-      <div> 
-          <label class="name">Your Name</label>
-          <div class="input-group border rounded">
-              <div class="input-group-addon px-2 pt-1">
-                  <p class="fa fa-user-o text-success"></p>
-              </div> 
-              <input type="text" class="form-control border-0" name="name" required>
-          </div>
-      </div>
-
-      <div> 
-          <label class="name">Email</label>
-          <div class="input-group border rounded">
-              <div class="input-group-addon px-2 pt-1"> <i class="fa fa-envelope text-success"></i></div> 
-              <input type="text" class="form-control border-0" name="email" required>
-          </div>
-      </div>
-
-      <div> 
-          <label class="name">Subject</label>
-          <div class="input-group border rounded">
-              <div class="input-group-addon px-2 pt-1"></div> 
-              <input type="text" class="form-control border-0" name="subject" required>
-          </div>
-      </div>
-
-      <div> 
-          <label>Message</label> 
-          <textarea name="messagebody" cols="14" rows="7" class="form-control bg-light" placeholder="Message" required></textarea> 
-      </div>
-
-      <fieldset class="form-group">
           <div> 
-              <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="form-check" name="message" required>
-                  <label class="form-check-label" for="form-check">
-                      I agree to the terms & conditions
-                  </label>
+              <label class="name">Your Name</label>
+              <div class="input-group border rounded">
+                  <div class="input-group-addon px-2 pt-1">
+                      <p class="fa fa-user-o text-success"></p>
+                  </div> 
+                  <input type="text" class="form-control border-0" name="name" required>
               </div>
           </div>
-      </fieldset>
-
-      <fieldset class="form-group text-xs-right">
-          <div><input type="submit" class="btn btn-outline-success btn-sm" value="Send Message"></div>
-      </fieldset>
-  </form>
-
-  <!-- JavaScript to handle form submission and redirect to Formspree success page -->
-  <script>
-      document.forms["contact"].addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent the form from submitting the traditional way
-
-          // Your Formspree integration code here if needed
-
-          // Redirect to Formspree success page
-          window.location.href = "https://formspree.io/success-page"; // Replace with your actual success page URL
-      });
-  </script>
-</div>
-
-
-
-  <!-- Success message container -->
-  <div id="successMessage" style="display: none;">
-      <p>Your message has been sent successfully. Thank you!</p>
-  </div>
-
-  <!-- JavaScript to handle form submission and show success message -->
-  <script>
-      function handleFormSubmission(event) {
-          event.preventDefault(); // Prevent the form from submitting the traditional way
-
-          // Add your Formspree integration code here if needed
-
-          // Clear input values
-          document.forms["contact"].reset();
-
-          // Show the success message
-          document.getElementById("successMessage").style.display = "block";
-      }
-  </script>
-</div>
-
-
-
-              <div class="form-group d-flex justify-content-end"> 
-                  <input type="submit" class="btn btn-outline-success" value="Send Message"> 
+      
+          <div> 
+              <label class="name">Email</label>
+              <div class="input-group border rounded">
+                  <div class="input-group-addon px-2 pt-1"> <i class="fa fa-envelope text-success"></i></div> 
+                  <input type="text" class="form-control border-0" name="email" required>
               </div>
-          </form>
+          </div>
+      
+          <div> 
+              <label class="name">Subject</label>
+              <div class="input-group border rounded">
+                  <div class="input-group-addon px-2 pt-1"></div> 
+                  <input type="text" class="form-control border-0" name="subject" required>
+              </div>
+          </div>
+      
+          <div> 
+              <label>Message</label> 
+              <textarea name="messagebody" cols="14" rows="7" class="form-control bg-light" placeholder="Message" required></textarea> 
+          </div>
+      
+          <fieldset class="form-group">
+              <div> 
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="form-check" name="message" required>
+                      <label class="form-check-label" for="form-check">
+                          I agree to the terms & conditions
+                      </label>
+                  </div>
+              </div>
+          </fieldset>
+      
+          <div class="form-group d-flex justify-content-end"> 
+              <input type="submit" class="btn btn-outline-success" value="Send Message"> 
+          </div>
+      </form>
+      
       </div>
   </div>
 </div>
